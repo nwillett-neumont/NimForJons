@@ -2,10 +2,10 @@ import Opponent from "./opponent.js";
 
 // Game Logic Controller Module
 
-var currentPlayer = false;
-var playerWon = false;
-var currentTurn = 0;
-var collection = [];
+export var currentPlayer = false;
+export var playerWon = false;
+export var currentTurn = 0;
+export var collection = [];
 var opponent = Opponent;
 var gameIsBeingPlayed = false;
 
