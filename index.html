@@ -14,11 +14,22 @@
 </head>
 <body>
     <h1>NIM FOR JONS</h1>
-    <div id="button-container"></div>
-    <button id="start-button">Start</button>
-    <ol id="game-history">
-    </ol>
-    <button id="end-turn-button">End Turn</button>
-    <button id="first-player-radio">a radio or somethin idk</button>
+    <div id="collection">
+        
+    </div>
+
+    <input type="radio" id="playerStart" name="first_turn" value="Player">
+    <label for="playerStart">Player Starts First</label><br/>
+    <input type="radio" id="computerStart" name="first_turn" value="Computer">
+    <label for="computerStart">Computer Starts First</label><br/>
+    <button id="startButton">Start</button>
+
+    <div id="winLoss">
+        <h2>Win/Loss</h2>
+        <p id="winLossHistory">0/0</p>
+    </div>
+    <h2 id="currentTurn">Current Turn: 0</h2>
+    <h2 id="currentPlayer">Player's Turn</h2>
+    <button id="endTurnButton">End Turn</button>
 </body>
 </html>
