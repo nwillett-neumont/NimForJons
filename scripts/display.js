@@ -1,5 +1,7 @@
 // Display and User Input Module
-const collection = document.getElementById("collection");
+import {currentPlayer, playerWon, currentTurn, collection} from './game.js'
+
+const displayCollection = document.getElementById("collection");
 const startButton = document.getElementById("startButton");
 const gameHistory = document.getElementById("winLossHistory");
 const endTurnButton = document.getElementById("endTurnButton");
@@ -33,10 +35,10 @@ function showGameUI() {
 
 };
 
-function changePlayButton() {
+function changePlayerButton() {
 
 };
 
-function handlePlayInput() {
+function handlePlayerInput() {
     
 };
