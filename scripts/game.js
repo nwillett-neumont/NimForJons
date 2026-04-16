@@ -1,23 +1,28 @@
 // Game Logic Controller Module
+import Opponent from "./opponent";
+
 var currentPlayer;
 var playerWon;
 var currentTurn = 0;
 var collection;
-var opponent;
+var opponent = new Opponent;
 var gameIsBeingPlayed = false;
 
-function startGame(){
+function startGame() {
+    gameIsBeingPlayed = true;
+    while (gameIsBeingPlayed) {
+        updateCurrentTurn();
+    }
+};
+
+function alternateTurn() {
 
 };
 
-function alternateTurn(){
-
+function updateCurrentTurn() {
+    currentTurn++;
 };
 
-function updateCurrentTurn(){
-
-};
-
-function randomizeCollection(){
+function randomizeCollection() {
 
 };
