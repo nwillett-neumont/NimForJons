@@ -2,7 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <link rel="icon" href="assets/images/icons/match-icon.svg">
     <link rel="stylesheet" href="assets/styles/css/default.css">
 
@@ -14,11 +14,29 @@
 </head>
 <body>
     <h1>NIM FOR JONS</h1>
-    <div id="button-container"></div>
-    <button id="start-button">Start</button>
-    <ol id="game-history">
-    </ol>
-    <button id="end-turn-button">End Turn</button>
-    <button id="first-player-radio">a radio or somethin idk</button>
+    <div class="game">
+    <div id="collection-container" class="big-square"></div>
+
+    <div id="button-container" class="buttons">
+        <input type="radio" id="first-player-radio" name="p-radio">Player Starts First</input>
+        <br>
+        <input type="radio" id="first-player-radio" name="p-radio">Computer Starts First</input>
+        <p><button id="start-button">Start</button></p>
+        <p><button id="end-turn-button">End Turn</button></p>
+        <ol id="game-history">
+        </ol>
+    </div>
+    <div class="stats">
+        <!-- PLACEHOLDERS
+        <div class="contain"><p>Win/Loss</p><div/>
+        <p></p>
+        <br>
+        <div class="contain"><p>Current Turn: 0</p><div/>
+        <p></p>
+        <br>
+        <div class="contain"><p>Player's Turn</p><div/>
+        -->
+    </div>
+    </div>
 </body>
 </html>
