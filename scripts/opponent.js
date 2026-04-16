@@ -7,7 +7,7 @@ let Opponent = {
         if (poppedItemCount > 4) poppedItemCount = 4;
 
         for (let i = 0; i < poppedItemCount; i++) {
-            if (collection[selectedGroup] > 0) {
+            if (collection[selectedGroup].length > 0) {
                 collection[selectedGroup].pop();
             }
         }
