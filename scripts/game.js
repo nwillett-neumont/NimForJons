@@ -19,6 +19,7 @@ function startGame() {
         }
         else {
             collection = opponent.opponentSelection(collection);
+            alternateTurn();
         }
     }
 };
