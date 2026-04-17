@@ -61,17 +61,30 @@ function showGameUI(collection,playerBool) {
 
 function handlePlayerInput(btn) {
     subCollection;
-    collection.forEach(sub => {
-        sub.forEach(element => {
+    for (let sub of collection){
+        for (let element of sub){
             if (element === btn){
                 subCollection = sub;
-            };
-        });
+                break;
+            }
+        };
         if (!(subCollection === sub)){
-            sub.forEach(element => {
+            for (let element of sub){
                 element.disable = true;
-            });
-        } ;
-    });
+            };
+        };
+    };
+    // collection.forEach(sub => {
+    //     sub.forEach(element => {
+    //         if (element === btn){
+    //             subCollection = sub;
+    //         };
+    //     });
+    //     if (!(subCollection === sub)){
+    //         sub.forEach(element => {
+    //             element.disable = true;
+    //         });
+    //     } ;
+    // });
     btn.remove();
 };
