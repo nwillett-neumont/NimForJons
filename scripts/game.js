@@ -12,7 +12,7 @@ var gameIsBeingPlayed = false;
 
 function startGame() {
     const radios = document.getElementsByName("first_turn");
-    let firtPlayer;
+    let firstPlayer;
     for (let radio of radios){
         if (radio.checked){
             firtPlayer = radio.value;
@@ -20,7 +20,7 @@ function startGame() {
         };
     };
     let currentPlayer;
-    if (firtPlayer === "Player"){
+    if (firstPlayer === "Player"){
         currentPlayer = true;
     } else {
         currentPlayer = false;
