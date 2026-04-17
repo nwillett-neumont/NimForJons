@@ -20,6 +20,11 @@ function updateHistory() { // not needed
 function updateCurrentTurn() {
     displayCurrentTurn.innerText = currentTurn;
     displayCurrentPlayer.innerText = (currentPlayer) ? "Player" : "Opponent";
+    collection.forEach(sub => {
+        sub.forEach(element => {
+            element.disable = false;
+        });
+    });
 };
 
 function showWinner() {
@@ -37,18 +42,56 @@ function promptStartNewGame() {
     startButton.hidden = false;
 };
 
-function promptContinueToMainMenu() {
+// Not Needed
+// function promptContinueToMainMenu() {
 
+// };
+
+function showGameUI(collection,playerBool) {
+    displayCollection.innerHTML = collection;
+    displayCollection.hidden = false;
+    displayCurrentTurn.hidden = false;
+    displayCurrentPlayer.hidden = false;
+    endTurnButton.hidden = false;
+    startButton.hidden = true;
+    document.getElementById("playerStart").hidden = true;
+    document.getElementById("computerStart").hidden = true;
+    if (!playerBool){
+        document.getElementById("currentPlayer").innerHTML = "Computer's Turn";
+    };
 };
 
-function showGameUI() {
+// Not Needed
+// function changePlayerButton() {
 
-};
+// };
 
-function changePlayerButton() {
-
-};
-
-function handlePlayerInput() {
-    
+function handlePlayerInput(btn) {
+    subCollection;
+    for (let sub of collection){
+        for (let element of sub){
+            if (element === btn){
+                subCollection = sub;
+                break;
+            }
+        };
+        if (!(subCollection === sub)){
+            for (let element of sub){
+                element.disable = true;
+            };
+        };
+    };
+    // collection.forEach(sub => {
+    //     sub.forEach(element => {
+    //         if (element === btn){
+    //             subCollection = sub;
+    //         };
+    //     });
+    //     if (!(subCollection === sub)){
+    //         sub.forEach(element => {
+    //             element.disable = true;
+    //         });
+    //     } ;
+    // });
+    btn.remove();
 };
