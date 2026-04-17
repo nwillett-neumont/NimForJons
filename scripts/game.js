@@ -1,4 +1,5 @@
 import Opponent from "./opponent.js";
+import { handlePlayerInput, updateCollection } from "./display.js";
 
 // Game Logic Controller Module
 
@@ -9,18 +10,20 @@ export var collection = [];
 var opponent = Opponent;
 var gameIsBeingPlayed = false;
 
-function startGame() {
+export function startGame() {
     randomizeCollection();
     gameIsBeingPlayed = true;
     
     while (gameIsBeingPlayed) {
         if (currentPlayer) {
             // player logic
+            gameIsBeingPlayed = false;
         }
         else {
             collection = opponent.opponentSelection(collection);
             alternateTurn();
         }
+        updateCollection();
     }
 };
 
@@ -34,14 +37,21 @@ function updateCurrentTurn() {
 };
 
 function randomizeCollection() {
-    let randomNumber = Math.random() * 6 + 1;
+    let randomNumber = Math.random() * 4 + 3;
 
     for (let i = 0; i < randomNumber; i++) {
         let valuesInCollection = Math.random() * 10 + 1;
         let subCollection = [];
         for (let i = 0; i < valuesInCollection; i++) {
-            subCollection.push(document.createElement('button').addEventListener('click',handlePlayerInput(this)));
+            let button = document.createElement('button');
+            button.id = `button${i}`;
+            button.innerText = "Nim";
+            button.addEventListener('click', () => {
+                handlePlayerInput(button);
+            });
+            subCollection.push(button);
         }
         collection.push(subCollection);
     }
+    console.log(collection);
 };

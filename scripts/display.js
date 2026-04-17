@@ -1,7 +1,7 @@
 // Display and User Input Module
-import {currentPlayer, playerWon, currentTurn, collection} from './game.js'
+import {currentPlayer, playerWon, currentTurn, collection, startGame} from './game.js'
 
-const displayCollection = document.getElementById("collection");
+var displayCollection = document.getElementById("collection");
 const startButton = document.getElementById("startButton");
 const gameHistory = document.getElementById("winLossHistory");
 const displayCurrentTurn = document.getElementById("currentTurn");
@@ -9,8 +9,16 @@ const displayCurrentPlayer = document.getElementById("currentPlayer");
 const endTurnButton = document.getElementById("endTurnButton");
 const firstPlayerRadio = document.getElementsByName("first_turn");
 
-function updateCollection() {
-    displayCollection.append(collection);
+startButton.addEventListener('click', startGame);
+
+export function updateCollection() {
+    for (let i of collection) {
+        let div = document.createElement('div');
+        displayCollection.appendChild(div);
+        for (let j of i) {
+            div.appendChild(j);
+        }
+    }
 };
 
 function updateHistory() { // not needed
@@ -32,6 +40,9 @@ function showWinner() {
 };
 
 function promptStartNewGame() {
+
+    displayCollection = document.getElementById("collection");
+
     displayCollection.hidden = true;
     displayCurrentTurn.hidden = true;
     displayCurrentPlayer.hidden = true;
@@ -66,32 +77,29 @@ function showGameUI(collection,playerBool) {
 
 // };
 
-function handlePlayerInput(btn) {
-    subCollection;
-    for (let sub of collection){
-        for (let element of sub){
-            if (element === btn){
-                subCollection = sub;
+export function handlePlayerInput(btn) {
+    console.log(collection);
+    for (let sub of collection) {
+        for (let subsub of sub) {
+            subsub.disabled = true;
+        }
+    };
+    let index;
+    let indexToRemove;
+    for (let i = 0; i < collection.length; i++) {
+        for (let j = 0; j < collection[i].length; j++) {
+            if (collection[i][j].id === btn.id) {
+                index = i;
                 break;
             }
         };
-        if (!(subCollection === sub)){
-            for (let element of sub){
-                element.disable = true;
-            };
-        };
+        
     };
-    // collection.forEach(sub => {
-    //     sub.forEach(element => {
-    //         if (element === btn){
-    //             subCollection = sub;
-    //         };
-    //     });
-    //     if (!(subCollection === sub)){
-    //         sub.forEach(element => {
-    //             element.disable = true;
-    //         });
-    //     } ;
-    // });
-    btn.remove();
+
+    collection[index].pop();
+    btn.parentElement.removeChild(btn);
+
+    for (let element of (collection[index])) {
+        element.disabled = false;
+    };
 };
