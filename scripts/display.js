@@ -10,11 +10,11 @@ const endTurnButton = document.getElementById("endTurnButton");
 const firstPlayerRadio = document.getElementsByName("first_turn");
 
 function updateCollection() {
-
+    displayCollection.append(collection);
 };
 
-function updateHistory() {
-    
+function updateHistory() { // not needed
+
 };
 
 function updateCurrentTurn() {
@@ -28,11 +28,18 @@ function updateCurrentTurn() {
 };
 
 function showWinner() {
-
+    displayCurrentPlayer.innerText = (playerWon) ? "You Win!" : "You Lose!";
 };
 
 function promptStartNewGame() {
+    displayCollection.hidden = true;
+    displayCurrentTurn.hidden = true;
+    displayCurrentPlayer.hidden = true;
+    endTurnButton.hidden = true;
 
+    gameHistory.hidden = false;
+    firstPlayerRadio.hidden = false;
+    startButton.hidden = false;
 };
 
 // Not Needed
