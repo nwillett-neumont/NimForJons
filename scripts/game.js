@@ -9,7 +9,23 @@ export var collection = [];
 var opponent = Opponent;
 var gameIsBeingPlayed = false;
 
+
 function startGame() {
+    const radios = document.getElementsByName("first_turn");
+    let firtPlayer;
+    for (let radio of radios){
+        if (radio.checked){
+            firtPlayer = radio.value;
+            break;
+        };
+    };
+    let currentPlayer;
+    if (firtPlayer === "Player"){
+        currentPlayer = true;
+    } else {
+        currentPlayer = false;
+    };
+
     randomizeCollection();
     gameIsBeingPlayed = true;
     
