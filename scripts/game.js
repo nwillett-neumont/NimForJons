@@ -15,7 +15,7 @@ function startGame() {
     let firstPlayer;
     for (let radio of radios){
         if (radio.checked){
-            firtPlayer = radio.value;
+            firstPlayer = radio.value;
             break;
         };
     };
