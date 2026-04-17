@@ -39,7 +39,7 @@ function randomizeCollection() {
         let valuesInCollection = Math.random() * 10 + 1;
         let subCollection = [];
         for (let i = 0; i < valuesInCollection; i++) {
-            subCollection.push(document.createElement('button'));
+            subCollection.push(document.createElement('button').addEventListener('click',handlePlayerInput(this)));
         }
         collection.push(subCollection);
     }
